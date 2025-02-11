@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake water Gun</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Snake Water Gun</h1>
+    <div class="game">
+        <div class="cards">
+            <div onclick="cardclicked(event.currentTarget)" class="card" id="gun">
+                <img src="./assets/gun.jpg" alt="Gun">
+            </div>
+            <div onclick="cardclicked(event.currentTarget)" class="card" id="water">
+                <img src="./assets/water.png" alt="Water"  >
+            </div>
+            <div onclick="cardclicked(event.currentTarget)" class="card" id="snake">
+                <img src="./assets/snake.webp" alt="Snake">
+            </div>
+        </div>
+        <div class="score-board">
+            <div class="user">
+                <div class="userscore">0</div>
+                <div class="name">User</div>
+            </div>
+            <div class="comp">
+                <div class="compscore">0</div>
+                <div class="name">Comp</div>
+            </div>
+        </div>
+        <div class="display">Start Game</div>
+    </div>
+    <script src="src.js"></script>
+</body>
+
+</html>
