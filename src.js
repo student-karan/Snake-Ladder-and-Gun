@@ -43,13 +43,11 @@ const evaluser = (userWin) => {
         userscorepara.innerHTML = userscore;
         display.innerHTML = "Congrats, you Won";
         display.style.backgroundColor = 'green';
-        display.style.Color = 'white'
     }
     else {
         compscore++;
         compscorepara.innerHTML = compscore;
         display.innerHTML = "Oops,you Lost";
         display.style.backgroundColor = 'red';
-        display.style.Color = 'white'
     }
 }
