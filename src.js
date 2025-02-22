@@ -1,6 +1,6 @@
-let Snake = document.querySelector("#snake");
-let Water = document.querySelector("#water");
-let Gun = document.querySelector("#gun");
+let snake = document.querySelector("#snake");
+let gun = document.querySelector("#gun");
+let water = document.querySelector("#water");
 
 let userscore = 0;
 let compscore = 0;
@@ -9,45 +9,46 @@ let userscorepara = document.querySelector(".userscore");
 let compscorepara = document.querySelector(".compscore");
 let display = document.querySelector(".display")
 
-function gencompresp() {
-    let choices = [Snake, Water, Gun];
-    let randIdx = Math.floor(Math.random() * choices.length);
-    return choices[randIdx];
+function compresp(){
+  let choices = [snake,water,gun];
+  let randidx = Math.floor(Math.random()*choices.length);
+  return choices[randidx];
 }
 
-let userWin = true;
+let userwin = true;
 
-const cardclicked = (evt) => {
-    let compchoice = gencompresp();
+function cardclicked(evt){
     let userchoice = evt;
-    if (userchoice === compchoice) {
-        display.innerHTML = "It was a tie, Play again."
-        display.style.backgroundColor = 'white';
+    let compchoice = compresp();
+    if(userchoice === compchoice){
+        display.innerHTML = "It was a tie, Play again"
+        display.style.backgroundColor = "white"
     }
-    else {
-        if (userchoice === Gun) {
-            userWin = compchoice === Snake ? true : false
-        }
-        if (userchoice == Water) {
-            userWin = compchoice === Gun ? true : false
-        }
-        if (userchoice == Snake) {
-            userWin = compchoice === Water ? true : false
-        }
-        evaluser(userWin);
+    else{
+    if(userchoice === snake){
+        userwin = compchoice === gun ? false:true
     }
+    if(userchoice === gun){
+        userwin = compchoice === water ? false:true
+    }
+    if(userchoice === water){
+        userwin = compchoice === snake ? false:true
+    }
+      checkWinner(userwin);
+}  
 }
-const evaluser = (userWin) => {
-    if (userWin) {
+
+function checkWinner(userwin){
+    if(userwin){
         userscore++;
         userscorepara.innerHTML = userscore;
-        display.innerHTML = "Congrats, you Won";
-        display.style.backgroundColor = 'green';
+        display.innerHTML = "You win";
+        display.style.backgroundColor = "green"
     }
-    else {
+    else{
         compscore++;
         compscorepara.innerHTML = compscore;
-        display.innerHTML = "Oops,you Lost";
-        display.style.backgroundColor = 'red';
+        display.innerHTML = "Oops, you lost";
+        display.style.backgroundColor = "red"
     }
 }
